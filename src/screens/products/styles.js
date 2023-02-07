@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
-import { THEME } from '../../constants/theme';
+import { THEME } from "../../constants/theme";
 
 export const styles = StyleSheet.create({
   container: {
@@ -9,11 +9,15 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    fontFamily: 'Bitter-Bold',
+    fontFamily: "Bitter-Bold",
     color: THEME.colors.title,
     padding: 10,
   },
   contentList: {
     flex: 1,
+  },
+  continue: {
+    flex: 1,
+    marginHorizontal: 20,
   },
 });

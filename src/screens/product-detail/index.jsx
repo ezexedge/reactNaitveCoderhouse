@@ -1,20 +1,29 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React from "react";
+import { View, Text, Alert, Button, TouchableOpacity } from "react-native";
 
-import { styles } from './styles';
-import { PRODUCTS } from '../../constants/data';
+import { styles } from "./styles";
+import { PRODUCTS } from "../../constants/data";
 
 const ProductDetail = ({ navigation, route }) => {
-  const { productId, title } = route.params;
-
-  const product = PRODUCTS.find((product) => product.id === productId);
+  const { productId, title, pizza, precio, extra } = route.params;
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{product.title}</Text>
-      <Text style={styles.title}>{product.description}</Text>
-      <Text style={styles.title}>{product.weight}</Text>
-      <Text style={styles.title}>${product.price}</Text>
+      <Text style={styles.title}>{pizza}</Text>
+      {extra === true ? (
+        <>
+          <Text style={{ color: "blue", fontSize: 20 }}>+</Text>
+
+          <Text style={styles.title}>{title}</Text>
+        </>
+      ) : null}
+
+      <TouchableOpacity>
+        <Button
+          title={`continuar precio ${precio}$`}
+          onPress={() => Alert.alert("comprado")}
+        />
+      </TouchableOpacity>
     </View>
   );
 };

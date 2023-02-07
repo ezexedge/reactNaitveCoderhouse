@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
-import { THEME } from '../../constants/theme';
+import { THEME } from "../../constants/theme";
 
 export const styles = StyleSheet.create({
   container: {
@@ -11,22 +11,19 @@ export const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 10,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.22,
-    shadowRadius: 2.22,
-    elevation: 3,
-    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 50,
   },
   title: {
     fontSize: 18,
-    fontFamily: 'Bitter-Medium',
+    fontFamily: "Bitter-Medium",
     color: THEME.colors.white,
+  },
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center",
+    backgroundColor: "rgba(0,0,0,.6)",
   },
 });
