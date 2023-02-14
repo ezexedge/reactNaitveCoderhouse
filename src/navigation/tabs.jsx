@@ -1,8 +1,8 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
+import AccountNavigator from "./account";
 import CartNavigator from "./cart";
-import OrdersNavigator from "./orders";
 import ShopNavigator from "./shop";
 
 const BottomTab = createBottomTabNavigator();
@@ -36,20 +36,6 @@ const Tabs = () => {
         }}
       />
       <BottomTab.Screen
-        name="OrdersTab"
-        component={OrdersNavigator}
-        options={{
-          title: "Orders",
-          tabBarIcon: ({ focused }) => (
-            <Ionicons
-              name={focused ? "file-tray" : "file-tray-outline"}
-              size={22}
-              color="black"
-            />
-          ),
-        }}
-      />
-      <BottomTab.Screen
         name="CartTab"
         component={CartNavigator}
         options={{
@@ -57,6 +43,20 @@ const Tabs = () => {
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name={focused ? "cart" : "cart-outline"}
+              size={22}
+              color="black"
+            />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="AccountTab"
+        component={AccountNavigator}
+        options={{
+          title: "my account",
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name={focused ? "person" : "person-circle"}
               size={22}
               color="black"
             />

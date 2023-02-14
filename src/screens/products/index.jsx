@@ -16,8 +16,6 @@ import { THEME } from "../../constants/theme";
 const Products = ({ navigation, route }) => {
   const { categoryId, title, precio } = route.params;
 
-  console.warn(title, categoryId);
-
   const filteredProducts = EXTRA.filter(
     (product) => product.categoryId === categoryId
   );
