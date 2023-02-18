@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   View,
   Text,
@@ -7,33 +7,31 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
 
 import { styles } from "./styles";
 import { ProductItem } from "../../components";
-import { EXTRA } from "../../constants/data/index";
 import { THEME } from "../../constants/theme";
+import { selectProduct, filterProducts } from "../../store/actions";
 
 const Products = ({ navigation, route }) => {
-  const { categoryId, title, precio } = route.params;
+  const dispatch = useDispatch();
+  const category = useSelector((state) => state.category.selected);
 
-  const filteredProducts = EXTRA.filter(
-    (product) => product.categoryId === categoryId
+  const filteredProducts = useSelector(
+    (state) => state.products.filteredProducts
   );
+  useEffect(() => {
+    dispatch(filterProducts(category.id, category.precio));
+  }, []);
 
   const onSelected = (item) => {
     navigation.navigate("ProductDetail", {
-      productId: item.id,
-      title: item.title,
-      pizza: title,
-      precio,
       extra: true,
     });
   };
   const redirect = () => {
     navigation.navigate("ProductDetail", {
-      title,
-      pizza: title,
-      precio,
       extra: false,
     });
   };
@@ -53,7 +51,7 @@ const Products = ({ navigation, route }) => {
       <View style={styles.continue}>
         <TouchableOpacity>
           <Button
-            title={`continuar precio ${precio}$`}
+            title={`continuar precio ${category.precio}$`}
             onPress={() => redirect()}
           />
         </TouchableOpacity>
