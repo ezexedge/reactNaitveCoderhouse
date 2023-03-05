@@ -1,11 +1,13 @@
-import { createStore, combineReducers } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
 
-import { categoryReducer, productReducer, cartReducer } from "./reducers";
+import placeReducer from "./place.slice";
 
-const rootReducer = combineReducers({
-  products: productReducer,
-  category: categoryReducer,
-  cart: cartReducer,
+export const store = configureStore({
+  reducer: {
+    place: placeReducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
-
-export default createStore(rootReducer);
