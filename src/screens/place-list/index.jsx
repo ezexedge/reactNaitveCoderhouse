@@ -1,10 +1,13 @@
+import { useEffect } from "react";
 import { View, Text, FlatList } from "react-native";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { PlaceItem } from "../../components";
+import { loadPlaces } from "../../store/place.slice";
 import { styles } from "./styles";
 
 const PlaceList = ({ navigation }) => {
+  const dispatch = useDispatch();
   const places = useSelector((state) => state.place.places);
 
   const renderItem = ({ item }) => (
@@ -14,14 +17,17 @@ const PlaceList = ({ navigation }) => {
     />
   );
   const keyExtractor = (item) => item.id;
-  return places.length === 0 ? (
-    <Text style={styles.fuente}>No agregaste ningun skatepark</Text>
-  ) : (
+
+  useEffect(() => {
+    dispatch(loadPlaces());
+  }, [dispatch]);
+
+  return (
     <FlatList
       data={places}
       style={styles.container}
       keyExtractor={keyExtractor}
-      renderItem={places.length === 0 ? <Text style={styles.fuente}>ded</Text> : renderItem}
+      renderItem={renderItem}
     />
   );
 };

@@ -25,7 +25,7 @@ const PlacesNavigator = () => {
         name="Places"
         component={PlaceListScreen}
         options={({ navigation }) => ({
-          title: "Skateparks",
+          title: "Direcciones",
           headerRight: () => (
             <TouchableOpacity
               style={{ marginRight: 0 }}
@@ -38,12 +38,12 @@ const PlacesNavigator = () => {
       <Stack.Screen
         name="PlaceDetail"
         component={PlaceDetailScreen}
-        options={{ title: "Detalles de skatepark" }}
+        options={{ title: "Detalles de la dirección" }}
       />
       <Stack.Screen
         name="NewPlace"
         component={NewPlaceScreen}
-        options={{ title: "Nuevo skatepark" }}
+        options={{ title: "Nueva dirección" }}
       />
       <Stack.Screen name="Maps" component={MapsScreen} options={{ title: "Mapa" }} />
     </Stack.Navigator>

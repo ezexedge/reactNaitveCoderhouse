@@ -4,19 +4,11 @@ import colors from "../../utils/colors";
 
 export const styles = StyleSheet.create({
   container: {
-    padding: 25,
-    overflow: "hidden",
+    padding: 20,
     flexDirection: "row",
     alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-
-    elevation: 2,
+    borderBottomColor: colors.primary,
+    borderBottomWidth: 1,
   },
   image: {
     width: 70,
@@ -32,6 +24,11 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
+    color: colors.text,
+    marginBottom: 10,
+  },
+  address: {
+    fontSize: 13,
     color: colors.text,
     marginBottom: 10,
   },
